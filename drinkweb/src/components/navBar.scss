@@ -1,0 +1,90 @@
+.navbar {
+    width: 100%;
+    height: auto;
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+
+    .navContainer {
+        width: 90%;
+        height: 100%;
+        //max-width: 1024px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: black;
+        padding-top: 1%;
+
+        .leftBtn {
+            cursor: pointer;
+            background-color: var(--primary-color);
+            border: none;
+
+            &__burger {
+
+                display: flex;
+                justify-content: space-around;
+                width: 1cm;
+                height: 6px;
+                margin-bottom: 3px;
+                background-color: black;
+
+                // & {
+                //     width: 1cm;
+                //     height: 6px;
+                //     background-color: black;
+                // }
+
+                // &::after {
+                //     width: 1cm;
+                //     height: 6px;
+                //     background-color: #A4BE7B;
+                // }
+
+                // &::before {
+                //     width: 1cm;
+                //     height: 6px;
+                //     background-color: #5F8D4E;
+                // }
+
+
+                // &::before,
+                // &::after {
+                //     content: '';
+
+                // }
+
+                // &::after {
+                //     transform: translate(12px);
+                // }
+
+                // &::before {
+                //     transform: translate(-12px);
+                // }
+
+            }
+        }
+
+        .right {
+            display: flex;
+            align-items: center;
+
+
+            .rightBtn_cart,
+            .rightBtn_user {
+                border-radius: 50%;
+                height: 40px;
+                width: 40px;
+                border: none;
+                align-items: center;
+                background-color: var(--primary-color);
+                margin-left: 10px;
+
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
