@@ -22,8 +22,9 @@ const HomeBlock = () => {
                         <div className='map' >
                             <button className='map__btn'>Find a Store</button>
                         </div>
+                        <button className='menuBtn'>MENU</button>
                     </div>
-                    {/* <button className='menuBtn'>MENU</button> */}
+
                 </div>
             </div>
         </>
