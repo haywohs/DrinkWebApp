@@ -1,0 +1,39 @@
+.login {
+    background-color: var(--primary-color);
+    height: min($numbers: 1024px);
+    width: 100%;
+}
+
+.wrapper {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 15%;
+    margin-left: 3%;
+}
+
+.form {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 10px auto;
+
+    input {
+        border: none;
+        border-radius: 10px;
+        margin-top: 5px;
+        text-align: center;
+        height: 30px;
+    }
+
+    button {
+        margin-top: 10px;
+        border-radius: 15px;
+        border: none;
+        background-color: #285430;
+        color: white;
+    }
+}

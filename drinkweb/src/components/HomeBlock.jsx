@@ -1,5 +1,9 @@
 import React from 'react'
 import "./homeblock.scss"
+import { Link } from 'react-router-dom'
+
+
+
 
 const HomeBlock = () => {
     return (
@@ -22,7 +26,9 @@ const HomeBlock = () => {
                         <div className='map' >
                             <button className='map__btn'>Find a Store</button>
                         </div>
-                        <button className='menuBtn'>MENU</button>
+                        <Link to="/productList">
+                            <button className='menuBtn'  >MENU</button>
+                        </Link>
                     </div>
 
                 </div>

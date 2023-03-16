@@ -1,0 +1,220 @@
+.popWindow {
+    width: 100%;
+    height: 1024px;
+    background-color: rgba(216, 216, 216, 0.653);
+    position: fixed;
+    top: 10%;
+    left: 0;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+}
+
+.popWrapper {
+    width: 60%;
+    height: fit-content;
+    background-color: #a4be7be7;
+    display: flex;
+}
+
+
+img {
+    width: 300px;
+    height: 500px;
+}
+
+.popoptions {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 50px 150px 160px 90px 50px;
+
+    .poptitle {
+        font-size: 20px;
+        grid-column: 1/4;
+        grid-row: 1/2;
+        display: flex;
+        justify-content: space-between;
+
+        p {
+            margin: 10px 10px;
+        }
+    }
+
+    .ice {
+        font-size: 15px;
+        grid-column: 1/2;
+        grid-row: 2/3;
+        margin-left: 15px;
+    }
+
+    .sweet {
+        font-size: 15px;
+
+        grid-column: 2/3;
+        grid-row: 2/3;
+    }
+
+    .options {
+        display: flex;
+        margin-left: 10px;
+        gap: 10px;
+    }
+
+    .options:first-child {
+        margin-top: 5px;
+    }
+
+    .preference {
+        grid-column: 1/4;
+        grid-row: 3/4;
+        display: flex;
+        flex-direction: column;
+        margin: 0 20px;
+
+        p {
+            font-size: 14px;
+        }
+
+        textarea {
+            border-radius: 20px;
+            border: none;
+            margin-top: 5px;
+            text-align: center;
+            height: 100px;
+        }
+    }
+
+    .error {
+        grid-column: 1/4;
+        grid-row: 4/5;
+        padding: 5px 5%;
+
+        select {
+            width: 100%;
+            height: 30px;
+            border-radius: 10px;
+        }
+    }
+
+    .addproduct {
+        grid-column: 1/4;
+        grid-row: 5/6;
+        background-color: #285430;
+        border: none;
+        border-radius: 40px;
+        width: 90%;
+        height: 30px;
+        margin: 0 auto;
+        color: white;
+        cursor: pointer;
+    }
+}
+
+.product {
+    width: 100%;
+
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        justify-content: center;
+        padding: 20px 20px;
+        row-gap: 60px;
+
+    }
+
+}
+
+.line1 {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+
+
+    img {
+        width: 300px;
+        height: 400px;
+    }
+
+    &__desc {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        width: 30%;
+
+        #productNm {
+            font-size: 40px;
+            font-weight: bold;
+        }
+
+        #productDesc {
+            color: rgb(108, 54, 54);
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            .condition {
+                display: flex;
+                align-items: center;
+                width: 50%;
+                justify-content: space-between;
+
+                .quantity {
+                    display: flex;
+                    justify-content: space-between;
+                    width: 80px;
+                    background-color: white;
+
+                    &__Btn {
+                        border: none;
+                        cursor: pointer;
+                        background-color: white;
+                    }
+                }
+            }
+
+            .customize {
+                display: flex;
+                justify-content: space-between;
+
+                &__Btn {
+                    background-color: #285430;
+                    border: none;
+                    border-radius: 40px;
+                    width: 45%;
+                    height: 30px;
+                    color: white;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+}
+
+.line2 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+
+
+    .recommend {
+        margin-left: 15%;
+    }
+
+    .recommendOptions {
+        display: flex;
+        justify-content: space-evenly;
+
+        img {
+            width: 150px;
+            height: 250px;
+        }
+    }
+}

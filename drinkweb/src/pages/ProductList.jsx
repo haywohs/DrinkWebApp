@@ -8,7 +8,6 @@ const ProductList = () => {
             <div className='productlist'>
                 <NavBar />
                 <MenuTitle />
-
             </div>
         </>
     )
