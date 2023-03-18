@@ -3,7 +3,13 @@ import "./navBar.scss"
 import { GiCoffeeCup } from "react-icons/gi";
 import { HiUser } from "react-icons/hi";
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
+
+const LinkNew = styled(Link)`
+    text-decoration:none;
+    color:black;   
+`;
 
 const NavBar = () => {
     return (
@@ -18,7 +24,7 @@ const NavBar = () => {
                         </button>
                     </div>
                     <div className='middle'>
-                        <span className='logo'>Drink.Booking</span>
+                        <LinkNew to='/' ><span className='logo'>Drink.Booking</span></LinkNew>
                     </div>
                     <div className='right'>
                         <button className='rightBtn_cart'><GiCoffeeCup size={35} /></button>

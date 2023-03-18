@@ -1,39 +1,76 @@
-.login {
-    background-color: var(--primary-color);
-    height: min($numbers: 1024px);
-    width: 100%;
-}
+    .logincontainer {
+        background-color: var(--primary-color);
+        height: min($numbers: 1024px);
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding-top: 5%;
 
-.wrapper {
-    width: 90%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-    margin-top: 15%;
-    margin-left: 3%;
-}
+        .wrapper {
+            width: 30%;
+            height: max-content;
+            background-color: white;
+            border-right: solid 3px rgba(0, 0, 0, .5);
+            border-bottom: solid 2px rgba(0, 0, 0, .3);
+            display: flex;
+            flex-direction: column;
 
-.form {
-    width: 20%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    margin: 10px auto;
+            img {
+                height: 150px;
+                width: 100px;
+                border-radius: 50%;
+                margin: 10px auto;
+            }
 
-    input {
-        border: none;
-        border-radius: 10px;
-        margin-top: 5px;
+        }
+    }
+
+    .welcome {
         text-align: center;
-        height: 30px;
+        font-weight: bold;
+
+        p {
+            font-weight: 400;
+            padding-top: 5px;
+        }
     }
 
-    button {
-        margin-top: 10px;
-        border-radius: 15px;
-        border: none;
-        background-color: #285430;
-        color: white;
+    .form {
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        margin: 10px auto;
+        //  background-color: green;
+
+        input {
+            border: none;
+            height: 40px;
+            background-color: #d9d9d9;
+            width: 70%;
+            outline: none;
+            margin: 3px auto;
+            text-align: center;
+        }
+
+
+
+        button {
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            background-color: #a4be7b;
+            font-weight: 600;
+            margin-top: 13%;
+            cursor: pointer;
+        }
     }
-}
+
+    .register {
+        font-size: 14px;
+        margin-top: 10px;
+
+        span {
+            font-weight: bold;
+        }
+    }
