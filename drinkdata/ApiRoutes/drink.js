@@ -1,16 +1,55 @@
 import express from "express";
-import Drink from "../models/Drink.js"
+import { createDrink, getDrink, updateDrink, deleteDrink } from "../RoutesController/drinks.js";
 
 const router = express.Router();
 
-router.post("/", async (req, res) => {
-    const newDrink = new Drink(req.body);
-    try {
-        const saveDrink = await newDrink.save();
-        res.status(200).json(saveDrink);
-    } catch (error) {
-        res.status(500).json(error);
-    }
-})
+
+router.post("/", createDrink
+    //separate the api url and function
+    // async (req, res, next) => {
+    //     const newDrink = new Drink(req.body);
+    //     try {
+    //         const saveDrink = await newDrink.save();
+    //         res.status(200).json(saveDrink);
+    //     } catch (error) {
+    //         next(errorMessage(500, "wrong data schema", error));
+    //         //next(error);
+    //         // res.status(500).json(error);
+    //     }}
+)
+
+router.get("/:id", getDrink
+    // async (req, res) => {
+    //     const drinkId = req.params.id;
+    //     try {
+    //         const getDrink = await Drink.findById(drinkId);
+    //         res.status(200).json(getDrink);
+    //     } catch (error) {
+    //         res.status(500).json(error);
+    //     }}
+)
+
+router.put("/:id", updateDrink
+    // async (req, res) => {
+    //     const drinkId = req.params.id;
+    //     const newBody = req.body;
+    //     try {
+    //         const updateDrink = await Drink.findByIdAndUpdate(drinkId, { $set: newBody }, { new: true })
+    //         res.status(200).json(updateDrink);
+    //     } catch (error) {
+    //         res.status(500).json(error);
+    //     }}
+)
+
+router.delete("/:id", deleteDrink
+    // async (req, res) => {
+    //     const drinkId = req.params.id;
+    //     try {
+    //         await Drink.findByIdAndDelete(drinkId);
+    //         res.status(200).json("Success");
+    //     } catch (error) {
+    //         res.status(500).json(error);
+    //     }}
+)
 
 export default router;
