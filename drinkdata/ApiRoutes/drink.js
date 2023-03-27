@@ -1,10 +1,10 @@
 import express from "express";
-import { createDrink, getDrink, updateDrink, deleteDrink } from "../RoutesController/drinks.js";
-
+import { createDrink, getDrink, updateDrink, deleteDrink, getAll } from "../RoutesController/drinks.js";
+import { getListDrinks } from "../RoutesController/lists.js";
 const router = express.Router();
 
 
-router.post("/", createDrink
+router.post("/:listId", createDrink
     //separate the api url and function
     // async (req, res, next) => {
     //     const newDrink = new Drink(req.body);
@@ -41,7 +41,7 @@ router.put("/:id", updateDrink
     //     }}
 )
 
-router.delete("/:id", deleteDrink
+router.delete("/:listId/:id", deleteDrink
     // async (req, res) => {
     //     const drinkId = req.params.id;
     //     try {
@@ -51,5 +51,7 @@ router.delete("/:id", deleteDrink
     //         res.status(500).json(error);
     //     }}
 )
+router.get("/", getAll);
+router.get("/findList/:listId", getListDrinks);
 
 export default router;
