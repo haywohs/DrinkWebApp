@@ -1,8 +1,9 @@
 import express from 'express'
 import dotenv from 'dotenv'
 import mongoose from 'mongoose'
+import cookieParser from 'cookie-parser'
 import ProductApiRouter from './ApiRoutes/drink.js'
-import UsersApiRouter from './ApiRoutes/users.js'
+import UsersApiRouter from './ApiRoutes/user.js'
 import AuthApiRouter from './ApiRoutes/auth.js'
 import ListsApiRouter from './ApiRoutes/drinkLists.js'
 
@@ -42,6 +43,8 @@ app.get("/", (req, res) => {
 
 //the uploaded body will be used in JSON
 app.use(express.json());
+//for express, to catch the cookie
+app.use(cookieParser());
 
 // for each next
 app.use((error, req, res, next) => {

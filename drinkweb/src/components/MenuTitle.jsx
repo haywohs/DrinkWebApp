@@ -4,8 +4,14 @@ import Menu from "../subcomponents/Menu.jsx"
 import { BiAperture, BiBarChartAlt2 } from 'react-icons/bi'
 import { GiThreeLeaves, GiOrangeSlice, GiWinterHat } from 'react-icons/gi'
 import { Products } from '../product'
+import useFetch from '../hooks/useFetch.js'
+
+
 
 const MenuTitle = () => {
+
+    const { data, loading, error } = useFetch("/drinkList/drink/");
+    console.log(data);
     return (
         <>
             <div className='menutitle'>
@@ -34,7 +40,7 @@ const MenuTitle = () => {
                     </div>
                     <div className='menu'>
                         <div className='menu__block'>
-                            <Menu data={Products} />
+                            <Menu data={data} />
                         </div>
                     </div>
                 </div>

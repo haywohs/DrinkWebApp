@@ -1,10 +1,11 @@
 import express from "express";
+import { verifyAdmin } from "../JWT_Token.js";
 import { createDrink, getDrink, updateDrink, deleteDrink, getAll } from "../RoutesController/drinks.js";
 import { getListDrinks } from "../RoutesController/lists.js";
 const router = express.Router();
 
 
-router.post("/:listId", createDrink
+router.post("/:listId", verifyAdmin, createDrink
     //separate the api url and function
     // async (req, res, next) => {
     //     const newDrink = new Drink(req.body);
@@ -29,7 +30,7 @@ router.get("/:id", getDrink
     //     }}
 )
 
-router.put("/:id", updateDrink
+router.put("/:id", verifyAdmin, updateDrink
     // async (req, res) => {
     //     const drinkId = req.params.id;
     //     const newBody = req.body;
@@ -41,7 +42,7 @@ router.put("/:id", updateDrink
     //     }}
 )
 
-router.delete("/:listId/:id", deleteDrink
+router.delete("/:listId/:id", verifyAdmin, deleteDrink
     // async (req, res) => {
     //     const drinkId = req.params.id;
     //     try {

@@ -9,7 +9,7 @@ const Menu = ({ data }) => {
                     <div className='box'>
                         {data.map((item, index) =>
                             <div className='item' key={index}>
-                                <img src={item.img} alt="" />
+                                <img src={item.photos[0]} alt={item.name} />
                                 <div className='itemTitle'>
                                     {item.name}
                                 </div>

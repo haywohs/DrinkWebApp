@@ -1,6 +1,7 @@
 import { errorMessage } from "../errorMessage.js";
 import User from "../models/User.js";
 import bcrypt from 'bcryptjs';
+import jwt from "jsonwebtoken";
 
 export const register = async (req, res, next) => {
     const userData = req.body;
@@ -30,7 +31,13 @@ export const login = async (req, res, next) => {
 
         const password = await bcrypt.compare(loginData.password, account.password);
         if (!password) return next(errorMessage(503, "wrong account or password"));
-        res.status(200).json(`${account.username} login succeessfully`);
+
+        //const token = jwt.sign({id:account._id, isAdmin:account.isAdmin}, 'secretkey');
+        //product a token for each user
+        const token = jwt.sign({ id: account._id, isAdmin: account.isAdmin }, process.env.JWT);
+
+        //'JWT_token is a name of token that we made, httpOnly is to prevent hacker
+        res.cookie('JWT_token', token, { httpOnly: true }).status(200).json(`${account.username} login succeessfully`);
     } catch (error) {
         next(errorMessage(500, "Fail to login", error));
     }
