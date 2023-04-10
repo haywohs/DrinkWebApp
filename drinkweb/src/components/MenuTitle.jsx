@@ -2,8 +2,7 @@ import React from 'react'
 import "./menutitle.scss"
 import Menu from "../subcomponents/Menu.jsx"
 import { BiAperture, BiBarChartAlt2 } from 'react-icons/bi'
-import { GiThreeLeaves, GiOrangeSlice, GiWinterHat } from 'react-icons/gi'
-import { Products } from '../product'
+import { GiThreeLeaves, GiMilkCarton, GiWinterHat } from 'react-icons/gi'
 import useFetch from '../hooks/useFetch.js'
 
 
@@ -11,7 +10,7 @@ import useFetch from '../hooks/useFetch.js'
 const MenuTitle = () => {
 
     const { data, loading, error } = useFetch("/drinkList/drink/");
-    console.log(data);
+    //console.log(data);
     return (
         <>
             <div className='menutitle'>
@@ -30,8 +29,8 @@ const MenuTitle = () => {
                             <span>Tea</span>
                         </div>
                         <div className='item'>
-                            <GiOrangeSlice />
-                            <span>Fruit</span>
+                            <GiMilkCarton />
+                            <span>Milk</span>
                         </div>
                         <div className='item'>
                             <GiWinterHat />
@@ -40,7 +39,7 @@ const MenuTitle = () => {
                     </div>
                     <div className='menu'>
                         <div className='menu__block'>
-                            <Menu data={data} />
+                            <Menu data={data} loading={loading} />
                         </div>
                     </div>
                 </div>

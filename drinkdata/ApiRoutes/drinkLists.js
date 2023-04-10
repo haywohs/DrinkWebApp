@@ -1,5 +1,5 @@
 import express from 'express'
-import { createList, deleteList, getListContent, getListDrinks, updateList } from '../RoutesController/lists.js'
+import { createList, deleteList, getListContent, updateList } from '../RoutesController/lists.js'
 import { verifyAdmin } from '../JWT_Token.js';
 
 const router = express.Router();

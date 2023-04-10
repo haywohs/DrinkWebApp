@@ -1,0 +1,30 @@
+@keyframes skeleton {
+    to {
+        opacity: 0.6;
+    }
+}
+
+
+.itemSK {
+    position: relative;
+    // width: 650px;
+    // height: 650px;
+
+
+
+    .imgSK {
+        width: 120px;
+        height: 180px;
+        background-color: #ECECEC;
+        margin-bottom: 2px;
+        animation: skeleton 1s ease infinite alternate;
+    }
+
+    .nameSK {
+        background-color: #ECECEC;
+        width: 90px;
+        height: 30px;
+        margin-left: 15px;
+        animation: skeleton 1s ease infinite alternate;
+    }
+}
