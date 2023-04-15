@@ -3,7 +3,9 @@
 export const errorMessage = (status, message, err) => {
     const error = new Error();
     const originalError = err?.message;
+    const Message = message; //in case not only error variable
     error.status = status;
-    error.message = message + "\nThe error detail: " + originalError;
+    error.message = Message;
+    error.detail = originalError;
     return error;
 }

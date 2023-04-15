@@ -46,18 +46,22 @@ app.use(express.json());
 //for express, to catch the cookie
 app.use(cookieParser());
 
-// for each next
-app.use((error, req, res, next) => {
-    const errorStatus = error.status || 500;
-    const errorMessage = error.message || "Api wrong";
-    return res.status(errorStatus).json({
-        status: errorStatus,
-        message: errorMessage
-    })
-})
 
 //separate the different api routers 
 app.use("/drinkList/drink", ProductApiRouter);
 app.use("/drinkList", ListsApiRouter);
 app.use("/auth", AuthApiRouter);
 app.use("/user", UsersApiRouter);
+
+
+// for each next to deal error
+app.use((error, req, res, next) => {
+    const errorStatus = error.status || 500;
+    const errorMessage = error.message || "Api wrong";
+    const errorDetail = error.detail;
+    return res.status(errorStatus).json({
+        status: errorStatus,
+        message: errorMessage,
+        detail: errorDetail
+    })
+})

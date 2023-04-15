@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import "./navBar.scss"
 import { GiCoffeeCup } from "react-icons/gi";
-import { HiUser } from "react-icons/hi";
-import { Link } from 'react-router-dom';
+import { HiUser, HiOutlineUser, HiOutlineLogout } from "react-icons/hi";
+import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { LoginContext } from '../context/LoginContext';
 
 
 const LinkNew = styled(Link)`
@@ -12,6 +13,15 @@ const LinkNew = styled(Link)`
 `;
 
 const NavBar = () => {
+    const navigate = useNavigate();
+    const { user, dispatch } = useContext(LoginContext);
+
+    const handleClick = (e) => {
+        e.preventDefault();
+        dispatch({ type: "logout" });
+        navigate("/");
+    }
+
     return (
         <>
             <div className='navbar'>
@@ -28,9 +38,17 @@ const NavBar = () => {
                     </div>
                     <div className='right'>
                         <button className='rightBtn_cart'><GiCoffeeCup size={35} /></button>
-                        <Link to='/login'>
-                            <button className='rightBtn_user'><HiUser size={35} /></button>
-                        </Link>
+                        {user ?
+                            <>
+                                <Link to='/member'>
+                                    <button className='rightBtn_user'><HiUser size={35} /></button>
+                                </Link>
+                                <span><button className='out' onClick={handleClick}><HiOutlineLogout style={{ margin: "0 auto" }} size={20} />OUT</button></span>
+                            </>
+                            :
+                            <Link to='/login'>
+                                <button className='rightBtn_user'><HiOutlineUser size={32} style={{ paddingTop: "5px" }} /></button>
+                            </Link>}
                     </div>
                 </div>
             </div>

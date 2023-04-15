@@ -1,0 +1,31 @@
+    .registerContainer {
+        width: 100%;
+        background-color: var(--primary-color);
+        height: min($numbers: 1024px);
+        display: flex;
+        justify-content: center;
+        padding-top: 5%;
+
+        .wrapper {
+            width: 30%;
+            background-color: white;
+            height: max-content;
+            border-right: solid 3px rgba(0, 0, 0, .5);
+            border-bottom: solid 2px rgba(0, 0, 0, .3);
+            display: flex;
+            flex-direction: column;
+
+            img {
+                width: 100px;
+                height: 150px;
+                margin: 10px auto;
+                border-radius: 50%;
+            }
+        }
+    }
+
+    .create {
+        text-align: center;
+        padding-top: 3%;
+        font-weight: bold;
+    }

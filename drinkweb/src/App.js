@@ -4,6 +4,8 @@ import Product from "./pages/ProductPage.jsx"
 import Login from "./pages/Login.jsx"
 import "./app.scss"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
+import Register from "./pages/Register.jsx"
+import QA from "./pages/QA.jsx"
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
             <Route path='/productList' element={<ProductList />} />
             <Route path='/products/:id' element={<Product />} />
             <Route path='/login' element={<Login />} />
+            <Route path='/register' element={<Register />} />
+            <Route path='/question' element={<QA />} />
           </Routes>
         </BrowserRouter>
       </div>

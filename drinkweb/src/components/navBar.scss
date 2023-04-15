@@ -80,6 +80,19 @@
                 background-color: var(--primary-color);
                 margin-left: 10px;
 
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+
+            .out {
+                display: flex;
+                flex-direction: column;
+                border: none;
+                border-radius: 10%;
+                background-color: var(--primary-color);
+                font-size: 10px;
+                margin-left: 10px;
 
                 &:hover {
                     cursor: pointer;
