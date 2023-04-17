@@ -1,7 +1,44 @@
-.productlist {
+.list {
     background-color: var(--primary-color);
+
+
+    .listContainer {
+        display: flex;
+        justify-content: center;
+        padding-top: 5%;
+
+
+        .listwrapper {
+            width: 100%;
+            height: max-content;
+
+        }
+    }
+}
+
+.listTitle {
     width: 100%;
+    max-width: 600px;
+    height: 60px;
     display: flex;
-    justify-content: center;
-    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background-color: #B385F0;
+    border-radius: 10px;
+    margin-top: 40px;
+
+    .listName {
+        height: 50px;
+        width: 100px;
+        font-size: large;
+        border: none;
+        background-color: var(--primary-color);
+
+        &:hover {
+            cursor: pointer;
+            background-color: #B385F0;
+            border-radius: 20px;
+        }
+    }
+
 }

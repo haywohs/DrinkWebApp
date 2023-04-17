@@ -6,19 +6,20 @@
     justify-content: center;
 
 
+
     &__container {
-        background-color: #A4BE7B;
-        width: 700px;
-        height: 700px;
         display: flex;
         justify-content: center;
         position: relative;
+        background-color: var(--primary-color);
+
 
         .box {
+            border: 15px solid #A4BE7B;
             position: absolute;
             background-color: #5F8D4E;
             width: 650px;
-            height: 650px;
+            height: max-content;
             top: 20px;
             //border: solid black 1px;
             display: flex;

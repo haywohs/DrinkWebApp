@@ -1,11 +1,21 @@
 import React, { useState } from 'react'
 import "./product.scss"
 import { AiOutlineCloseCircle } from 'react-icons/ai'
+import { useLocation } from 'react-router-dom'
+import useFetch from '../hooks/useFetch.js'
 
 
 
 
 const Product = () => {
+
+    //get ID from url
+    const drinkUrl = useLocation();
+    const drinkId = drinkUrl.pathname.split("/")[2];
+
+    //use ID to get the drink details
+    const { data, loading, error } = useFetch(`/drinkList/drink/${drinkId}`);
+    // console.log(data.photos);
 
     const [pop, setPop] = useState(false);
 
@@ -102,12 +112,12 @@ const Product = () => {
                 <div className='product__container'>
                     <div className='line1'>
                         {/* <img src={data.tmg} alt={data.name} /> */}
-                        <img src="https://img.etimg.com/photo/95652431/95652431.jpg" alt="1" />
+                        <img src="https://img.etimg.com/photo/95652431/95652431.jpg" alt={data.name} />
                         <div className='line1__desc'>
-                            <p id="productNm" >Product Name</p>
-                            <p id="productDesc">Description</p>
+                            <p id="productNm" >{data.name}</p>
+                            <p id="productDesc">{data.description}</p>
                             <div className='options'>
-                                <div className='condition'>$50
+                                <div className='condition'>${data.price}
                                     <div className='quantity'>
                                         <button className='quantity__Btn'>-</button>
                                         <span className='number'>1</span>
