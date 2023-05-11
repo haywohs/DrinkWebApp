@@ -53,6 +53,5 @@ router.delete("/:listId/:id", verifyAdmin, deleteDrink
     //     }}
 )
 router.get("/", getAll);
-router.get("/findList/:listId", getListDrinks);
 
 export default router;

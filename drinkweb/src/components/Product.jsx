@@ -1,13 +1,16 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import "./product.scss"
 import { AiOutlineCloseCircle } from 'react-icons/ai'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import useFetch from '../hooks/useFetch.js'
+import { LoginContext } from '../context/LoginContext.js'
 
 
 
 
 const Product = () => {
+
+    const navigate = useNavigate();
 
     //get ID from url
     const drinkUrl = useLocation();
@@ -17,7 +20,22 @@ const Product = () => {
     const { data, loading, error } = useFetch(`/drinkList/drink/${drinkId}`);
     // console.log(data.photos);
 
+    const { user } = useContext(LoginContext);
+
+    //set up customize
     const [pop, setPop] = useState(false);
+
+    const handleAddToCart = (e) => {
+        e.preventDefault();
+        if (user) {
+
+            console.log(user);
+        } else {
+            navigate('/login');
+        }
+    }
+
+
 
     const PopUp = () => {
         setPop(true);
@@ -34,46 +52,46 @@ const Product = () => {
                         <img src="https://img.etimg.com/photo/95652431/95652431.jpg" alt="1" />
                         <div className='popoptions'>
                             <div className='poptitle'>
-                                <p>Product Name</p>
+                                <p>{data.name}</p>
                                 <AiOutlineCloseCircle size="25px" onClick={Quit} />
                             </div>
                             <div className="ice">
                                 Iceness
                                 <div className='options'>
-                                    <input type='checkbox' value='extra' />Extra Ice
+                                    <input type='radio' value='extra' />Extra Ice
                                 </div>
                                 <div className='options'>
-                                    <input type='checkbox' value='ice' />Ice
+                                    <input type='radio' value='ice' />Ice
                                 </div>
                                 <div className='options'>
-                                    <input type='checkbox' value='cold' />Cold
+                                    <input type='radio' value='cold' />Cold
                                 </div>
                                 <div className='options'>
-                                    <input type='checkbox' value='warm' />Warm
+                                    <input type='radio' value='warm' />Warm
                                 </div>
                                 <div className='options'>
-                                    <input type='checkbox' value='hot' />Hot
+                                    <input type='radio' value='hot' />Hot
                                 </div>
                             </div>
                             <div className='sweet'>
                                 Sweetness
                                 <div className='options'>
-                                    <input type='checkbox' value='100' />100%
+                                    <input type='radio' value='100' />100%
                                 </div>
                                 <div className='options'>
-                                    <input type='checkbox' value='70' />70%
+                                    <input type='radio' value='70' />70%
                                 </div>
                                 <div className='options'>
-                                    <input type='checkbox' value='50' />50%
+                                    <input type='radio' value='50' />50%
                                 </div>
                                 <div className='options'>
-                                    <input type='checkbox' value='30' />30%
+                                    <input type='radio' value='30' />30%
                                 </div>
                                 <div className='options'>
-                                    <input type='checkbox' value='10' />10%
+                                    <input type='radio' value='10' />10%
                                 </div>
                                 <div className='options'>
-                                    <input type='checkbox' value='0' />No Sugar
+                                    <input type='radio' value='0' />No Sugar
                                 </div>
                             </div>
                             <div className='topping'>
@@ -103,7 +121,7 @@ const Product = () => {
                                     <option value="call">Call me</option>
                                 </select>
                             </div>
-                            <button className='addproduct'>Add To Cart</button>
+                            <button className='addproduct' onClick={handleAddToCart}>Add To Cart</button>
                         </div>
                     </div>
                 </div>
@@ -126,7 +144,7 @@ const Product = () => {
                                 </div>
                                 <div className='customize'>
                                     <button className='customize__Btn' onClick={PopUp} >Customize</button>
-                                    <button className='customize__Btn'>Add To Cart</button>
+                                    <button className='customize__Btn' onClick={handleAddToCart}>Add To Cart</button>
                                 </div>
                             </div>
                         </div>

@@ -1,6 +1,6 @@
 import React from 'react'
 import "./menu.scss"
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Skeleton from './Skeleton.jsx'
 
 const Menu = ({ data, loading }) => {

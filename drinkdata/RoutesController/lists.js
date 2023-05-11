@@ -14,9 +14,9 @@ export const createList = async (req, res, next) => {
 };
 
 export const getListContent = async (req, res, next) => {
-    const listId = req.params.listId;
+    const listName = req.params.listName;
     try {
-        const listDrink = await List.findById(listId);
+        const listDrink = await List.findOne({ "name": `${listName}` });
         res.status(200).json(listDrink);
     } catch (error) {
         next(errorMessage(500, "wrong list id", error));
@@ -45,9 +45,9 @@ export const deleteList = async (req, res, next) => {
 };
 
 export const getListDrinks = async (req, res, next) => {
-    const listId = req.params.listId;
+    const listName = req.params.listName;
     try {
-        const listData = await List.findById(listId);
+        const listData = await List.findOne({ "name": `${listName}` });
         try {
 
             const listDrinks = await Promise.all(listData.drinks.map(drinkId => {
@@ -62,3 +62,12 @@ export const getListDrinks = async (req, res, next) => {
         next(errorMessage(500, "wrong list id", error));
     }
 };
+
+export const getAllList = async (req, res, next) => {
+    try {
+        const allList = await List.find();
+        res.status(200).json(allList);
+    } catch (error) {
+        next(errorMessage(500, "Wrong with List", error));
+    }
+}

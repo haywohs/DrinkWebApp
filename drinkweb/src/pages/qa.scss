@@ -1,0 +1,25 @@
+.questionContainer {
+    width: 100%;
+    display: flex;
+    background-color: var(--primary-color);
+    justify-content: center;
+    padding-top: 5%;
+
+    .questionWrapper {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+.qaSearch {
+    padding-top: 5%;
+    width: 100%;
+
+    select {
+        width: 100%;
+        height: 40px;
+        font-size: 16px;
+    }
+}

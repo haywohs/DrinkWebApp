@@ -1,0 +1,15 @@
+.Questions {
+    display: flex;
+    flex-direction: column;
+
+    .QuestionsContainer {
+        padding-top: 5%;
+    }
+}
+
+.options {
+    padding-top: 3%;
+    text-align: left;
+    font-size: x-large;
+    color: rgb(44, 43, 43);
+}
