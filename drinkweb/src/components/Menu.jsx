@@ -10,7 +10,7 @@ const Menu = ({ data, loading }) => {
         <>
             <div className='menu'>
                 <div className='menu__container'>
-                    {loading ? <Skeleton type="menu" length={8} /> :
+                    {loading ? <Skeleton type="menu" length={4} /> :
                         <div className='box'>
                             {data.map((item, index) =>
                                 <Link to={`/products/${item._id}`} key={index} style={{ textDecoration: "none", color: "black" }}>

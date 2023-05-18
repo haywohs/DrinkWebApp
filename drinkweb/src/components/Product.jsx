@@ -18,21 +18,30 @@ const Product = () => {
 
     //use ID to get the drink details
     const { data, loading, error } = useFetch(`/drinkList/drink/${drinkId}`);
-    // console.log(data.photos);
+    console.log(data);
 
     const { user } = useContext(LoginContext);
 
     //set up customize
     const [pop, setPop] = useState(false);
+    const [iceSelected, setIceSelected] = useState("");
+    const [sweetSelected, setSweetSelected] = useState("");
 
     const handleAddToCart = (e) => {
         e.preventDefault();
         if (user) {
-
+            //使購物車+1 應跳轉回Menu
+            navigate('/productList');
             console.log(user);
         } else {
             navigate('/login');
         }
+    }
+    const handleIceChange = (e) => {
+        setIceSelected(e.target.value);
+    }
+    const handleSweetChange = (e) => {
+        setSweetSelected(e.target.value);
     }
 
 
@@ -49,7 +58,7 @@ const Product = () => {
             {pop &&
                 <div className='popWindow'>
                     <div className='popWrapper'>
-                        <img src="https://img.etimg.com/photo/95652431/95652431.jpg" alt="1" />
+                        <img src={data.photos[0]} alt="1" />
                         <div className='popoptions'>
                             <div className='poptitle'>
                                 <p>{data.name}</p>
@@ -58,40 +67,40 @@ const Product = () => {
                             <div className="ice">
                                 Iceness
                                 <div className='options'>
-                                    <input type='radio' value='extra' />Extra Ice
+                                    <input type='radio' value='extra' onChange={handleIceChange} checked={iceSelected === 'extra'} />Extra Ice
                                 </div>
                                 <div className='options'>
-                                    <input type='radio' value='ice' />Ice
+                                    <input type='radio' value='ice' checked={iceSelected === 'ice'} onChange={handleIceChange} />Ice
                                 </div>
                                 <div className='options'>
-                                    <input type='radio' value='cold' />Cold
+                                    <input type='radio' value='cold' checked={iceSelected === 'cold'} onChange={handleIceChange} />Cold
                                 </div>
                                 <div className='options'>
-                                    <input type='radio' value='warm' />Warm
+                                    <input type='radio' value='warm' checked={iceSelected === 'warm'} onChange={handleIceChange} />Warm
                                 </div>
                                 <div className='options'>
-                                    <input type='radio' value='hot' />Hot
+                                    <input type='radio' value='hot' checked={iceSelected === 'hot'} onChange={handleIceChange} />Hot
                                 </div>
                             </div>
                             <div className='sweet'>
                                 Sweetness
                                 <div className='options'>
-                                    <input type='radio' value='100' />100%
+                                    <input type='radio' value='100' checked={sweetSelected === '100'} onChange={handleSweetChange} />100%
                                 </div>
                                 <div className='options'>
-                                    <input type='radio' value='70' />70%
+                                    <input type='radio' value='70' checked={sweetSelected === '70'} onChange={handleSweetChange} />70%
                                 </div>
                                 <div className='options'>
-                                    <input type='radio' value='50' />50%
+                                    <input type='radio' value='50' checked={sweetSelected === '50'} onChange={handleSweetChange} />50%
                                 </div>
                                 <div className='options'>
-                                    <input type='radio' value='30' />30%
+                                    <input type='radio' value='30' checked={sweetSelected === '30'} onChange={handleSweetChange} />30%
                                 </div>
                                 <div className='options'>
-                                    <input type='radio' value='10' />10%
+                                    <input type='radio' value='10' checked={sweetSelected === '10'} onChange={handleSweetChange} />10%
                                 </div>
                                 <div className='options'>
-                                    <input type='radio' value='0' />No Sugar
+                                    <input type='radio' value='0' checked={sweetSelected === '0'} onChange={handleSweetChange} />No Sugar
                                 </div>
                             </div>
                             <div className='topping'>
@@ -116,6 +125,7 @@ const Product = () => {
                             <div className='error'>
                                 <p>If this product is not available</p>
                                 <select>
+                                    <option default>Select alternative option</option>
                                     <option value="remove">Remove it from my order list</option>
                                     <option value="cancel">Cancel the whole order</option>
                                     <option value="call">Call me</option>
@@ -129,8 +139,7 @@ const Product = () => {
             <div className='product'>
                 <div className='product__container'>
                     <div className='line1'>
-                        {/* <img src={data.tmg} alt={data.name} /> */}
-                        <img src="https://img.etimg.com/photo/95652431/95652431.jpg" alt={data.name} />
+                        <img src={data.photos?.[0]} alt={data.name} />
                         <div className='line1__desc'>
                             <p id="productNm" >{data.name}</p>
                             <p id="productDesc">{data.description}</p>

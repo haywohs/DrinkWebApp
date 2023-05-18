@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import NavBar from '../components/NavBar';
 import "./productList.scss"
-import { BiAperture, BiBarChartAlt2 } from 'react-icons/bi'
-import { GiThreeLeaves, GiMilkCarton, GiWinterHat } from 'react-icons/gi'
+//import { BiAperture, BiBarChartAlt2 } from 'react-icons/bi'
+//import { GiThreeLeaves, GiMilkCarton, GiWinterHat } from 'react-icons/gi'
 import Menu from '../components/Menu.jsx';
 import useListData from '../hooks/useListData';
 
@@ -12,9 +12,8 @@ const ProductList = () => {
     //default is all drinks
     const [list, setList] = useState("drink");
 
-
     const { listData, loading } = useListData(list);
-
+    console.log(listData);
 
     return (
         <>
@@ -24,24 +23,19 @@ const ProductList = () => {
                     <div className='listWrapper'>
                         <div className='listTitle'>
                             <button className='listName' id='drink' onClick={(e) => setList(e.target.id)}>
-                                <BiBarChartAlt2 />
-                                <span>All</span>
+                                All
                             </button>
                             <button className='listName' id='list/New' >
-                                <BiAperture />
-                                <span>New</span>
+                                New
                             </button>
                             <button className='listName' id='list/Tea' onClick={(e) => setList(e.target.id)}>
-                                <GiThreeLeaves />
-                                <span>Tea</span>
+                                Tea
                             </button>
                             <button className='listName' id='list/Milk' onClick={(e) => setList(e.target.id)}>
-                                <GiMilkCarton />
-                                <span>Milk</span>
+                                Milk
                             </button>
                             <button className='listName' id='list/Season' onClick={(e) => setList(e.target.id)}>
-                                <GiWinterHat />
-                                <span>Season</span>
+                                Season
                             </button>
                         </div>
                         <div className='listMenu'>

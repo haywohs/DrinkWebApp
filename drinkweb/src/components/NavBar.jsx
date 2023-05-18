@@ -37,7 +37,9 @@ const NavBar = () => {
                         <LinkNew to='/' ><span className='logo'>Drink.Booking</span></LinkNew>
                     </div>
                     <div className='right'>
-                        <button className='rightBtn_cart'><GiCoffeeCup size={35} /></button>
+                        <Link to='/cart'>
+                            <button className='rightBtn_cart'><GiCoffeeCup size={35} /></button>
+                        </Link>
                         {user ?
                             <>
                                 <Link to='/member'>

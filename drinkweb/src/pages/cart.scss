@@ -1,0 +1,96 @@
+.cartContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: var(--primary-color);
+
+    h1 {
+        padding-top: 10%;
+        text-align: center;
+    }
+}
+
+.cartWrapper {
+    width: 80%;
+    margin: 5% auto;
+    //  background-color: red;
+    display: flex;
+    justify-content: left;
+}
+
+.cartTable {
+    width: 70%;
+    display: flex;
+    //background-color: green;
+    flex-direction: column;
+}
+
+.subTable {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 7%;
+}
+
+.thead {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 0.8fr 0.5fr 0.8fr 0.5fr;
+    grid-template-rows: 25px;
+}
+
+.tbody {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.item {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 0.8fr 0.5fr 0.8fr 0.5fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+
+    img {
+        width: 100px;
+        height: 150px;
+    }
+}
+
+.itemDetail {
+    display: flex;
+    justify-content: start;
+
+    .itemText {
+        margin-left: 10px;
+    }
+}
+
+.itemQuantity {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.subtotal {
+    display: flex;
+    justify-content: space-between;
+}
+
+.discount {
+    display: flex;
+    justify-content: space-between;
+
+    p {
+        color: red;
+    }
+}
+
+.total {
+    display: flex;
+    justify-content: space-between;
+}

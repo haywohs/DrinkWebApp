@@ -13,7 +13,7 @@ const HomeBlock = () => {
                     <div className='block1'>
                         <p className='block1__des'>
                             Start fresh with Drink Rewards.<br />
-                            Jion today to earn your way to free drinks.
+                            Join today to earn your way to free drinks.
                         </p>
                     </div>
                     <div className='block2'>
