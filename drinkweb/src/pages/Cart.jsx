@@ -18,7 +18,7 @@ const Cart = () => {
                                 <h4>SUM</h4>
                             </div>
                             <div className='tbody'>
-                                <div className='item'>
+                                <div className='cartItem'>
                                     <div className='itemDetail'>
                                         <img src="" alt="" />
                                         <div className='itemText'>
@@ -38,7 +38,7 @@ const Cart = () => {
                                         $ 4.6
                                     </div>
                                 </div>
-                                <div className='item'>
+                                <div className='cartItem'>
                                     <div className='itemDetail'>
                                         <img src="" alt="" />
                                         <div className='itemText'>

@@ -16,12 +16,14 @@ const HomeBlock = () => {
                             Join today to earn your way to free drinks.
                         </p>
                     </div>
+                    <div className='circle1' />
                     <div className='block2'>
                         <div className='block2__wrapper'>
                             <button className='popDrink' />
-                            <p className='popDrink__des'>Description for pop drink.</p>
+                            <p className='popDrink__des'>Summer Cooooool drink coming</p>
                         </div>
                     </div>
+                    <div className='circle2' />
                     <div className='block3'>
                         <div className='map' >
                             <button className='map__btn'>Find a Store</button>

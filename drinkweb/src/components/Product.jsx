@@ -4,6 +4,7 @@ import { AiOutlineCloseCircle } from 'react-icons/ai'
 import { useLocation, useNavigate } from 'react-router-dom'
 import useFetch from '../hooks/useFetch.js'
 import { LoginContext } from '../context/LoginContext.js'
+import { CartContext } from '../context/CartContext'
 
 
 
@@ -18,7 +19,7 @@ const Product = () => {
 
     //use ID to get the drink details
     const { data, loading, error } = useFetch(`/drinkList/drink/${drinkId}`);
-    console.log(data);
+    //console.log(data);
 
     const { user } = useContext(LoginContext);
 
@@ -27,16 +28,31 @@ const Product = () => {
     const [iceSelected, setIceSelected] = useState("");
     const [sweetSelected, setSweetSelected] = useState("");
 
-    const handleAddToCart = (e) => {
-        e.preventDefault();
-        if (user) {
-            //使購物車+1 應跳轉回Menu
-            navigate('/productList');
-            console.log(user);
-        } else {
-            navigate('/login');
-        }
+    //extract function from CartContext
+    const {addToCart, increase, cartItems, countItem, sumItems } = useContext(CartContext);
+
+    //check if the product is in the cart or not
+    const isInCart = (product)=>{
+        return !!cartItems.find(item=>item.id ===product.id);
     }
+
+    // const handleAddToCart = (product) => {
+    //     //e.preventDefault();
+    //     if (user) {
+    //         //使購物車+1 應跳轉回Menu
+    //         // if(isInCart(product)){
+    //         // increase(product);
+    //         // }else{
+    //         //     addToCart(product);
+    //         // }
+    //         navigate('/productList');
+    //         console.log(user);
+    //     } else {
+    //         navigate('/login');
+    //     }
+    // }
+
+
     const handleIceChange = (e) => {
         setIceSelected(e.target.value);
     }
@@ -131,7 +147,7 @@ const Product = () => {
                                     <option value="call">Call me</option>
                                 </select>
                             </div>
-                            <button className='addproduct' onClick={handleAddToCart}>Add To Cart</button>
+                            <button className='addproduct' >Add To Cart</button>
                         </div>
                     </div>
                 </div>
@@ -153,7 +169,7 @@ const Product = () => {
                                 </div>
                                 <div className='customize'>
                                     <button className='customize__Btn' onClick={PopUp} >Customize</button>
-                                    <button className='customize__Btn' onClick={handleAddToCart}>Add To Cart</button>
+                                    <button className='customize__Btn' >Add More</button>
                                 </div>
                             </div>
                         </div>

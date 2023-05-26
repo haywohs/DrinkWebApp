@@ -17,6 +17,7 @@
             background-color: #A4BE7B;
             grid-column: 1/3;
             grid-row: 1/2;
+            position: relative;
 
             &__des {
                 text-align: center;
@@ -25,11 +26,23 @@
                 font-family: cursive;
             }
         }
+        .circle1{
+           
+            border-radius: 50%;
+            position:fixed;
+            right:-1.5%;
+            top:30%;
+            width:150px;
+            height:150px;
+            background-color: rgba(246, 184, 24, .69);
+            z-index: -1;
+        }
 
         .block2 {
-            background-color: #5F8D4E;
+            background-color: #F69C9C;
             grid-column: 2/4;
             grid-row: 2/3;
+           
 
             &__wrapper {
                 display: flex;
@@ -46,7 +59,7 @@
                     height: 200px;
                     margin-top: 2%;
                     margin-left: 2%;
-                    background-image: url("../../../drinkdata/drink.jpg");
+                    background-image: url("../../../drinkdata/drink.png");
                     background-size: cover;
                     box-shadow: 1px 2px 6px 6px rgba(100, 100, 100, .5);
 
@@ -59,9 +72,19 @@
 
             }
         }
+        .circle2{
+            position:fixed;
+            top:75%;
+            left:-1%;
+            border-radius: 50%;
+            width:150px;
+            height:150px;
+            background-color: rgba(15, 24, 251, .54);
+            z-index: -1;
+        }
 
         .block3 {
-            background-color: #285430;
+            background-color: #00FFF0;
             grid-column: 1/3;
             grid-row: 3/4;
             position: relative;
@@ -85,8 +108,8 @@
                     font-size: x-large;
                     font-family: cursive;
                     font-weight: bold;
-                    color: white;
-                    background-color: rgba(1, 105, 36, .9);
+                    color: black;
+                    background-color: #C2FB79;
                 }
             }
 
@@ -98,7 +121,7 @@
                 height: 100px;
                 border-radius: 50%;
                 border: 2px white solid;
-                background-color: black;
+                background-color: #10687A;
                 color: white;
                 font-size: x-large;
                 font-family: cursive;

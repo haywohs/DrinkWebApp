@@ -5,16 +5,29 @@ import { HiUser, HiOutlineUser, HiOutlineLogout } from "react-icons/hi";
 import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { LoginContext } from '../context/LoginContext';
+import { CartContext } from '../context/CartContext';
 
 
 const LinkNew = styled(Link)`
     text-decoration:none;
     color:black;   
 `;
+const CartCombo = styled.div`
+    position:relative;
+`
+const CartNum = styled.div`
+    position:absolute;
+    top:5px;
+
+`
 
 const NavBar = () => {
     const navigate = useNavigate();
     const { user, dispatch } = useContext(LoginContext);
+
+    const {cartItems} =useContext(CartContext);
+    //console.log(cartItems)
+    
 
     const handleClick = (e) => {
         e.preventDefault();
@@ -34,12 +47,14 @@ const NavBar = () => {
                         </button>
                     </div>
                     <div className='middle'>
-                        <LinkNew to='/' ><span className='logo'>Drink.Booking</span></LinkNew>
+                        <LinkNew to='/' ><div className='logo' /></LinkNew>
                     </div>
                     <div className='right'>
-                        <Link to='/cart'>
-                            <button className='rightBtn_cart'><GiCoffeeCup size={35} /></button>
-                        </Link>
+                        <LinkNew to='/cart'>
+                            <CartCombo>
+                            <GiCoffeeCup size={35} />{cartItems.length>0 && (<CartNum>{cartItems.length}</CartNum>)}
+                            </CartCombo>
+                        </LinkNew>
                         {user ?
                             <>
                                 <Link to='/member'>
