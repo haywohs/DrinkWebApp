@@ -19,7 +19,7 @@ Additionally, administrators have access to a dedicated admin panel to manage pr
 
 - Front-end:
   - React.js: A powerful JavaScript library for building interactive user interfaces.
-  - Redux: A state management library for maintaining centralized application state.
+  - Context API: A state management library for maintaining centralized application state.
   - HTML5/SCSS: Modern web technologies for structuring and styling the application.
 - Back-end:
   - Node.js: A JavaScript runtime environment for server-side development.
