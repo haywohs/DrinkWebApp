@@ -1,7 +1,7 @@
 # MERN Stack E-commerce Web Application
 
 
-Welcome to our MERN (MongoDB, Express.js, React.js, Node.js) stack e-commerce web application! 
+Welcome to my MERN (MongoDB, Express.js, React.js, Node.js) stack e-commerce web application! 
 This application provides a complete solution for managing an online store, allowing users to browse products, add them to their shopping cart, and make purchases securely. 
 Additionally, administrators have access to a dedicated admin panel to manage product details and user accounts.
 
